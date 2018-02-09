@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <section class="content-header">
+        <h1>
+            Principal
+        </h1>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Estado General</h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="chart-responsive text-center">
+                                    <canvas id="pieChart" height="150"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-footer no-padding">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="#"><b>EFECTIVO DISPONIBLE</b> <span class="pull-right text-green"><b><div id="deuda"></div></b></span></a></li>
+                            <li><a href="#"><b>DEUDAS</b> <span class="pull-right text-red"><b><div id="entrada"></div></b></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden">
+                <div class="box">
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="chart">
+                                    <!-- Sales Chart Canvas -->
+                                    <canvas id="salesChart" style="height: 180px;"></canvas>
+                                </div><!-- /.chart-responsive -->
+                            </div><!-- /.col -->
+                        </div><!-- /.row -->
+                    </div><!-- ./box-body -->
+                </div><!-- /.box -->
+            </div>
+            <div class="col-md-5">
+                <a class="btn btn-danger form-control" href="#nGasto?modo=a"><i class="fa fa-money" aria-hidden="true"></i>&nbsp;&nbsp; Registrar Gasto &nbsp;&nbsp;<i class="fa fa-credit-card-alt" aria-hidden="true"></i></a>
+                <br><br>
+                <a class="btn btn-success form-control" href="#nEntrada?modo=a"><i class="fa fa-usd" aria-hidden="true"></i>&nbsp;&nbsp; Registrar Entrada de Dinero &nbsp;&nbsp;<i class="fa fa-usd" aria-hidden="true"></i></a>
+            </div>     
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <h2>Gastos y Pagos</h2>
+    <br>
+    <h4>Tipo de gasto</h4>
+    <ng-form method="POST" name="gastos">
+        <div class="input-group" style="max-width:300px">
+            <input type="text" disabled class="form-control text-bold" aria-label="" value="Pago de Deudas o Tarjetas">
+            <span class="input-group-addon">
+                <input type="checkbox" style="width: 17px; height: 17px;" ng-model="pagoDeudas" aria-label="">
+            </span>
+        </div>
+        <br>
+        <select ng-model="selectGasto" ng-hide="pagoDeudas" class="form-control" style="max-width:300px" ng-options="tipo.gasto as tipo.gasto for tipo in tipoGastos"></select>
+        <br>
+        <h4>Medio de pago</h4>
+        <SELECT NAME="mediopago" class="form-control" style="max-width:200px" id="mediopago" SIZE=1>
+            <OPTION VALUE="efectivo">Efectivo</OPTION>
+            <OPTION ng-hide="pagoDeudas" VALUE="tarjeta">Tarjeta o Deuda</OPTION>
+        </SELECT>
+        <br>
+        <h4>Monto</h4>
+        <input type="number" required class="form-control" style="max-width:200px" ng-model="monto">
+        <br>
+        <div class="text-center">
+            <button class="btn btn-danger btn-lg" style="min-width:200px" ng-model="btnAgregar" ng-disabled="gastos.$invalid || gastos.$pending" ng-click="agregar()"><b>Registrar</b></button>
+        </div>
+    </ng-form>
+
+</body>
+</html>

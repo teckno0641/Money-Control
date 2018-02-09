@@ -1,0 +1,45 @@
+{
+  "ProjectName": "controlGastos",
+  "ProjectGuid": "331011b9-8b1a-4753-ac75-e2d0bbed7cd6",
+  "projectVersion": 1,
+  "AppIdentifier": "com.dreadsoft.controlGastos",
+  "DisplayName": "ControlGastos",
+  "Author": "Martin Sibaja",
+  "Description": "ControlGastos",
+  "BundleVersion": "1.0",
+  "AndroidVersionCode": "1",
+  "iOSDeviceFamily": [
+    "1",
+    "2"
+  ],
+  "iOSBackgroundMode": [],
+  "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
+  "FrameworkVersion": "4.0.0",
+  "AndroidPermissions": [
+    "android.permission.INTERNET"
+  ],
+  "DeviceOrientations": [
+    "Portrait",
+    "Landscape"
+  ],
+  "AndroidHardwareAcceleration": "true",
+  "iOSStatusBarStyle": "Default",
+  "Framework": "Cordova",
+  "WP8TileTitle": "",
+  "WP8Publisher": "",
+  "WP8Capabilities": [
+    "ID_CAP_NETWORKING",
+    "ID_CAP_WEBBROWSERCOMPONENT"
+  ],
+  "WP8Requirements": [],
+  "WP8PublisherID": "{84ca7b11-13c8-4b13-9e4f-15c9fb74ecef}",
+  "WP8ProductID": "{08041261-70f1-4ccb-87d7-e4d73732123b}",
+  "WPSdk": "8.0",
+  "WP8PackageIdentityName": "1234Telerik.controlGastos",
+  "WP8WindowsPublisherName": "CN=Telerik",
+  "WP8SupportedResolutions": [
+    "ID_RESOLUTION_WVGA",
+    "ID_RESOLUTION_WXGA",
+    "ID_RESOLUTION_HD720P"
+  ]
+}

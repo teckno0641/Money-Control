@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <h3>
+        Tipos de gasto
+        <div class="btn-group">
+            <a href="" class="btn btn-mini btn-link dropdown-toggle" data-toggle="dropdown">
+                <i class="icon-cog"></i>
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li><a href="" ng-click="nuevoTipoGasto()"><i class="fa fa-plus"></i> Agregar</a></li>
+            </ul>
+        </div>
+    </h3>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <td>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="tipo in tipoGasto">
+                <td>
+                    {{tipo.gasto}}
+                    &nbsp;&nbsp;
+                    <div class="btn-group">
+                        <a href="" class="btn btn-mini btn-link dropdown-toggle" data-toggle="dropdown">
+                            <span class="fa fa-cog"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li><a tabindex="-1" href="" ng-click="borrarTipoGasto(tipo)"><span class="fa fa-eraser"></span> Borrar</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr style="border-color:black">
+    <br>
+    <h3>
+        Tipos de entradas
+        <div class="btn-group">
+            <a href="" class="btn btn-mini btn-link dropdown-toggle" data-toggle="dropdown">
+                <i class="icon-cog"></i>
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li><a href="" ng-click="nuevoTipoEntrada()"><i class="fa fa-plus"></i> Agregar</a></li>
+            </ul>
+        </div>
+    </h3>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="entrada1 in tipoEntrada">
+                <td>
+                    {{entrada1.entrada}}
+                    &nbsp;&nbsp;
+                    <div class="btn-group">
+                        <a href="" class="btn btn-mini btn-link dropdown-toggle" data-toggle="dropdown">
+                            <span class="fa fa-cog"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li><a tabindex="-1" href="" ng-click="borrarTipoEntrada(entrada1)"><span class="fa fa-eraser"></span> Borrar</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr style="border-color:black">
+
+
+
+    <button ng-click="borrado()">Borrar registro de entradas y deudas</button><br><br>
+
+    <ng-form name="ngFrmTipoGasto">
+        <div id="frmTipoGasto" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Tipo de gasto</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <input type="text" required class="form-control" style="max-width:200px" ng-model="gasto">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" ng-click="agregarGasto()">Registrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-form>
+    <ng-form name="ngFrmTipoEntrada">
+        <div id="frmTipoEntrada" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Tipo de entrada</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <input type="text" required class="form-control" style="max-width:200px" ng-model="entrada">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" ng-click="agregarEntrada()">Registrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <h2>Entradas de Dinero</h2>
+    <br>
+    <h4>Tipo de Entrada Dinero</h4>
+    <ng-form method="POST" name="entradas">
+        <div class="input-group" style="max-width:300px">
+            <input type="text" disabled class="form-control text-bold" aria-label="" value="Endeudamiento">
+            <span class="input-group-addon">
+                <input type="checkbox" style="width: 17px; height: 17px;" ng-model="deuda" aria-label="">
+            </span>
+        </div>
+        <br>
+        <select ng-model="selectEntrada" ng-hide="deuda" class="form-control" style="max-width:300px" ng-options="tipo.entrada as tipo.entrada for tipo in tipoEntrada"></select>
+        <br>
+        <h4>Monto</h4>
+        <input type="number" required class="form-control" style="max-width:200px" ng-model="monto">
+        <br>
+        <div class="text-center">
+        <button class="btn btn-danger btn-lg" ng-model="btnAgregar" style="min-width:200px" ng-disabled="entradas.$invalid || entradas.$pending" ng-click="agregar()">Registrar</button>
+   </div>
+     </ng-form>
+</body>
+</html>

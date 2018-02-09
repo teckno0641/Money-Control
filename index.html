@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html ng-app="mio">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Control de Gastos</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/ionicons.min.css" rel="stylesheet" />
+    <link href="css/jquery-jvectormap-1.2.2.css" rel="stylesheet" />
+    <link href="css/AdminLTE.min.css" rel="stylesheet" />
+    <link href="css/_all-skins.min.css" rel="stylesheet" />
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" ng-controller="inicio">
+    <div class="wrapper">
+        <header class="main-header">
+            <a href="#principal" class="logo">
+                <span class="logo-mini"><i class="fa fa-home" aria-hidden="true"></i></span>
+                <span class="logo-lg"><b>Control de</b>&nbsp;Gastos</span>
+            </a>
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- AQUI ESTA EL BOTON QUE OCULTA EL MENU -->
+                <a href="" id="menu1" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown notifications-menu" ng-show="numrecords > 0">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell-o"></i>
+                                <span class="label label-warning">{{numrecords}}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header"><b>Recordatorios</b></li>
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="record in records">
+                                            <td>
+                                                <i class="fa fa-circle"></i>
+                                                {{record.detalle}}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="text-center">
+                                    <a href="#recordatorio?modo=a" class="btn btn-primary btn-xs">VER RECORDATORIOS</a>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="dropdown notifications-menu" ng-show="numCompras > 0">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span class="label label-warning">{{numCompras}}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header"><b>Compras pendientes</b></li>
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="compras in compra">
+                                            <td>
+                                                <i class="fa fa-circle"></i>
+                                                {{compras.detalle}}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="text-center">
+                                    <a href="#compras?modo=a" class="btn btn-primary btn-xs" ng-click="compras()">VER LISTA DE COMPRAS</a>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="dropdown user user-menu">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="img/dread1.gif" class="user-image" alt="User Image">
+                                <span class="hidden-xs">Acerca de</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="user-header">
+                                    <img src="img/dread1.gif" class="img-circle" alt="User Image">
+                                    <p>
+                                        Control de gastos, Ver:1.2
+                                    </p>
+                                    <p>
+                                        Martin Sibaja - Desarrollador
+                                    </p>
+                                </li>
+                                <li class="user-body">
+                                    <a href="#ayuda" class="btn btn-danger"><b>Tutorial</b></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="img/dread1.gif" class="img-circle" alt="User Image">
+                    </div>
+                    <br>
+                    <div class="pull-left info">
+                        <p>Control de gastos</p>
+                    </div>
+                </div>
+                <ul class="sidebar-menu" ng-hide="controller.hideSideBar">
+                    <li class="header"><b>MENU PRINCIPAL</b></li>
+                    <li class="treeview">
+                        <a href="">
+                            <b>
+                                <i class="fa fa-money"></i>
+                                <span>
+                                    &nbsp; ACCIONES
+                                </span>
+                            </b>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="#nGasto" style="padding-top:15px"><b><i class="fa fa-money"></i>&nbsp; NUEVO GASTO</b></a></li>
+                            <li><a href="#nEntrada" style="padding-top:15px"><b><i class="fa fa-money"></i>&nbsp; NUEVA ENTRADA</b></a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="">
+                            <b>
+                                <i class="fa fa-wpforms"></i>
+                                <span>
+                                    &nbsp; INFORMACION
+                                </span>
+                            </b>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="#gastoInfo" style="padding-top:15px"><b><i class="fa fa-wpforms"></i>&nbsp; INFORME DE GASTOS</b></a></li>
+                            <li><a href="#entradaInfo" style="padding-top:15px"><b><i class="fa fa-wpforms"></i>&nbsp; INFORME DE ENTRADAS</b></a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="">
+                            <b><i class="fa fa-exclamation-circle"></i> <span>&nbsp; EXTRAS</span></b>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="#compras" style="padding-top:15px"><i class="fa fa-cart-plus"></i>&nbsp; LISTA DE COMPRAS</a></li>
+                            <li><a href="#recordatorio" style="padding-top:15px"><i class="fa fa-list-alt"></i>&nbsp; RECORDATORIOS</a></li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li><a href="#config"><b><i class="fa fa-cog"></i> <span>CONFIGURACION</span></b></a></li>
+                </ul>
+            </section>
+        </aside>
+        <div class="content-wrapper">
+            <section class="content">
+                <div ng-model="templates">
+                    <div ng-view></div>
+                </div>
+            </section>
+        </div>
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Versión</b> 1.2
+            </div>
+            <strong>2016-martin sibaja</strong> Derechos Reservados.
+        </footer>
+        <aside class="control-sidebar control-sidebar-dark">
+            <div class="tab-content">
+                <div class="tab-pane" id="control-sidebar-home-tab">
+                </div>
+            </div>
+        </aside>
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <script src="js/jQuery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/fastclick.min.js"></script>
+    <script src="js/app.min.js"></script>
+    <script src="js/jquery.sparkline.min.js"></script>
+    <script src="js/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="js/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="js/jquery.slimscroll.min.js"></script>
+    <script src="js/Chart.min.js"></script>
+    <script src="js/controles.js"></script>
+    <script src="js/demo.js"></script>
+</body>
+</html>

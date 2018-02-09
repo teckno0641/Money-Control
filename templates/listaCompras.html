@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <h3>Compras</h3>
+
+    <ng-form method="POST" name="compras">
+        <textarea maxlength="100" rows="2" required class="form-control" ng-model="articulo"></textarea>
+        <button class="btn btn-default" ng-disabled="compras.$invalid || compras.$pending" ng-click="agregar()">Agregar articulo</button>
+    </ng-form>
+    <hr>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <td colspan="2">
+                    <div class="text-center">
+                        Fecha
+                    </div>
+                </td>
+                <td>
+                    <div class="text-center">
+                        Detalle
+                    </div>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="dato in datos">
+                <td>
+                    {{dato.fecha}}
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <a href="" class="btn btn-mini btn-link dropdown-toggle" data-toggle="dropdown">
+                            <span class="fa fa-cog"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li><a tabindex="-1" href="" ng-click="borrar(dato)"><span class="fa fa-eraser"></span> Borrar</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>
+                    {{dato.detalle}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
